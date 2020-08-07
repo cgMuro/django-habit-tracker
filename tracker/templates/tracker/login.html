@@ -1,0 +1,47 @@
+{% extends 'tracker/layout.html' %}
+
+{% block content %}
+    <div class="container register-container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <h3 class="text-center">Login</h3>
+                <div class="form-group">
+                    <label for="id_username">
+                        {{ form.username.label }}
+                    </label>
+                    {{ form.username }}
+                </div>
+                <div class="form-group">
+                    <label for="id_password">
+                        {{ form.password.label }}
+                    </label>
+                    {{ form.password }}
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-outline-info">Login</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a href="{% url 'tracker:register' %}" class="ml-2">Register</a>
+            </small>
+        </div>
+    </div>
+
+    <script>
+        // Add classes to labels and inputs
+        labels = document.querySelectorAll('label');
+        labels.forEach(label => label.classList.add('form-control-label'));
+        inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            if (input.id === 'id_password') {
+                input.placeholder = 'Enter password';
+            } else if (input.id === 'id_username') {
+                input.placeholder = 'Enter username';
+            }
+            input.classList.add('form-control', 'form-control-lg');
+        })
+    </script>
+{% endblock content %}

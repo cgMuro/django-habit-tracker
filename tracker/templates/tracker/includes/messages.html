@@ -1,0 +1,21 @@
+{% if messages %}
+    {% for message in messages %}
+        {% if message.tags == 'success'%}
+            <div class="mt-5 alert alert-success">
+                {{ message }}
+            </div>
+        {% elif message.tags == 'info'%}
+            <div class="mt-5 alert alert-info">
+                {{ message }}
+            </div>
+        {% elif message.tags == 'warning'%}
+            <div class="mt-5 alert alert-warning">
+                {{ message }}
+            </div>
+        {% elif message.tags == 'error'%}
+            <div class="mt-5 alert alert-danger">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}

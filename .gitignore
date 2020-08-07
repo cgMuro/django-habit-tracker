@@ -1,0 +1,4 @@
+db.sqlite3
+habit_tracker/__pycache__
+tracker/__pycache__
+tracker/migrations
