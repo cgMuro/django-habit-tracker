@@ -7,6 +7,7 @@
             <div class="form-group">
                 <h3 class="text-center">Register</h3>
                 <div class="my-4">
+                    <!-- Display form errors -->
                     {% for field in form %}
                         {% for error in field.errors %}
                             <div class="alert alert-danger">
@@ -57,9 +58,10 @@
     </div>
 
     <script>
-        // Add classes to labels and inputs
+        // Add classes to labels
         labels = document.querySelectorAll('label');
         labels.forEach(label => label.classList.add('form-control-label'));
+        // Add classes and placeholders to inputs
         inputs = document.querySelectorAll('input');
         inputs.forEach(input => {
             if (input.id === 'id_password1') {

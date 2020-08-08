@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('tracker.urls')),
+    path('', include('tracker.urls')), # Path refering to the tracker app
     path('admin/', admin.site.urls),
 ]

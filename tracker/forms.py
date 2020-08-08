@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from .models import Habit
 
 class RegisterForm(UserCreationForm):
+    # Add email and placeholders to UserCreationForm 
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
@@ -12,6 +13,7 @@ class RegisterForm(UserCreationForm):
             'email': forms.fields.EmailInput(attrs={'placeholder': 'example@gmail.com'}),
         }
 
+# Habit form
 class HabitForm(forms.ModelForm):
     activity = forms.CharField(
         max_length=100, 
@@ -35,12 +37,3 @@ class HabitForm(forms.ModelForm):
     class Meta:
         model = Habit
         fields = ('activity', 'time_spent', 'description')
-
-    # def save(self, commit=False):
-    #     habit = super(HabitForm, self).save(commit=False)
-    #     habit.activity = self.cleaned_data['activity']
-    #     habit.time_spent = self.cleaned_data['time_spent']
-    #     habit.description = self.cleaned_data['description']
-    #     if commit:
-    #         habit.save()
-    #     return habit
