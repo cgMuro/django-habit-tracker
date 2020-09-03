@@ -1,4 +1,5 @@
 db.sqlite3
 habit_tracker/__pycache__
+habit_tracker/secret_key.py
 tracker/__pycache__
 tracker/migrations
